@@ -10,16 +10,16 @@
  * Собственно настроенный ВПН.
 
 Ставлю postgresql на Raspberry pi5:
-'''bash
+```bash
 ssh egor@100.93.200.33
-'''
+```
 
 Обновляю репозитории и пакеты:
-'''bash
+```bash
 sudo apt update && apt upgrade -y
-'''
+```
 
 Устанавлиаю postgresql:
-'''bash
+```bash
 sudo apt install postgresql -y
-'''
+```
