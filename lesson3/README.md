@@ -97,11 +97,11 @@ sudo -u postgres pg_ctlcluster 18 main start
 Не получается, **"Error: /var/lib/postgresql/18/main is not accessible or does not exist"**
 
 Это связано с тем что я не указал новое расположение данных на монтированном томе, следовательно надо надо искать postgresql.conf:
-'''bash
+```bash
 sudo nano /etc/postgresql/18/main/postgresql.conf
 ```
 
-В файле нашел расположение "data_directory" и поменял путь на "/mnt/data/18/main", после запустил кластер командой:
+В файле нашел расположение **"data_directory"** и поменял путь на **"/mnt/data/18/main"**, после запустил кластер командой:
 ```bash
 sudo systemctl start postgresql@18-main
 ```
