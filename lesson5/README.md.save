@@ -1,0 +1,40 @@
+# Урок "Настройка PostgreSQL"
+
+Создаю базу 'otus':
+```pgsql
+CREATE DATABASE otus;
+```
+
+Захожу под пользователем postgres и запускаю pg_bench:
+```bash
+sudo su postgres
+pgbench -i test
+```
+
+Тестирую производительность:
+```bash
+pgbench -c 50 -j 2 -P 10 -T 60 otus
+```
+
+В ответ получил:
+```bash
+progress: 10.0 s, 415.8 tps, lat 114.224 ms stddev 128.534, 0 failed
+progress: 20.0 s, 397.9 tps, lat 124.749 ms stddev 164.271, 0 failed
+progress: 30.0 s, 428.8 tps, lat 117.145 ms stddev 144.332, 0 failed
+progress: 40.0 s, 425.8 tps, lat 117.850 ms stddev 155.572, 0 failed
+progress: 50.0 s, 439.8 tps, lat 114.080 ms stddev 138.268, 0 failed
+progress: 60.0 s, 418.4 tps, lat 119.620 ms stddev 145.690, 0 failed
+transaction type: <builtin: TPC-B (sort of)>
+scaling factor: 1
+query mode: simple
+number of clients: 50
+number of threads: 2
+maximum number of tries: 1
+duration: 60 s
+number of transactions actually processed: 25314
+number of failed transactions: 0 (0.000%)
+latency average = 118.029 ms
+latency stddev = 146.440 ms
+initial connection time = 320.107 ms
+tps = 423.108567 (without initial connection time)
+```
